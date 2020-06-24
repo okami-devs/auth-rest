@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
+    "monk": "^7.3.0",
     "volleyball": "^1.5.1"
   },
   "devDependencies": {
