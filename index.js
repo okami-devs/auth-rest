@@ -1,16 +1,26 @@
 const express = require('express');
 const volleyball = require('volleyball');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const auth = require('./auth');
 const jwt = require('./auth/athorization');
+
+const corsOptions = {
+  origin: 'http://localhost:8080',
+  optionsSuccessStatus: 200
+};
 
 // get config vars
 dotenv.config();
 
 const app = express();
 
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(volleyball);
+
+app.use(express.static('public'));
+
 
 app.get('/', (req, res) => {
   res.json({
@@ -50,5 +60,5 @@ app.use(errorHandler);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  console.log('Listening on port', port);
+  console.log('Listening on port', `http://localhost:${port}`);
 });
