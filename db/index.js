@@ -1,5 +1,5 @@
 const monk = require('monk');
-const connection = '127.0.0.1:27017/auth-rest';
+const connection = process.env.MONGODB_URI;
 const db = monk(connection);
 
 module.exports = db;
