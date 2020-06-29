@@ -19,7 +19,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(volleyball);
 
-app.use(express.static('public'));
+app.use(express.static('./client/dist'));
 
 
 app.get('/', (req, res) => {

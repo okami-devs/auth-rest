@@ -8,7 +8,7 @@
 <script>
 const axios = require('axios');
 
-const TEST_URL = 'http://localhost:5000/test';
+const TEST_URL = '/test';
 
 export default {
   name: 'Main',

@@ -70,7 +70,7 @@
 const Joi = require('@hapi/joi');
 const axios = require('axios');
 
-const SIGNUP_URL = 'http://localhost:5000/auth/signup';
+const SIGNUP_URL = '/auth/signup';
 const userSchema = Joi.object({
   username: Joi.string().alphanum().min(6).max(20)
     .required(),

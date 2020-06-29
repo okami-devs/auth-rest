@@ -51,7 +51,7 @@
 const Joi = require('@hapi/joi');
 const axios = require('axios');
 
-const LOGIN_URL = 'http://localhost:5000/auth/login';
+const LOGIN_URL = '/auth/login';
 const userSchema = Joi.object({
   username: Joi.string().alphanum().min(6).max(20)
     .required(),
