@@ -78,10 +78,10 @@ export default {
         axios.post(LOGIN_URL, this.user)
           .then((res) => {
             this.valid = true;
-            sessionStorage.setItem('token', res.data);
-            // this.$router.push({ name: 'Login' });
+            sessionStorage.setItem('token', res.data.token);
+            this.$router.push({ name: 'Main' });
           }).catch((err) => {
-            this.error = err.message;
+            this.error = err.response.data.message;
             this.valid = false;
             throw err;
           });

@@ -35,7 +35,7 @@ app.get('/test', jwt.authenticateToken, (req, res) => {
   // ...
   res.status(201);
   res.json({
-    message: 'Succesfully created ✅!',
+    message: 'Succesfully auth 😎!',
     data: {
       user: req.user,
     },
@@ -48,11 +48,11 @@ function notFound(req, res, next) {
 }
 
 function errorHandler(err, req, res, next) {
-  res.status(res.statusCode || 500);
   res.json({
     message: err.message,
     stack: err.stack,
   });
+  res.status(res.statusCode || 500);
 }
 
 app.use(notFound);

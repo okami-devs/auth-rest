@@ -102,13 +102,12 @@ export default {
           password: this.user.password,
         };
         axios.post(SIGNUP_URL, body)
-          .then((res) => {
+          .then(() => {
             this.valid = true;
             this.success = true;
-            console.log(res);
             this.$router.push({ name: 'Login' });
           }).catch((err) => {
-            this.error = err.message;
+            this.error = err.response.data.message;
             this.valid = false;
             throw err;
           });

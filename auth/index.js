@@ -61,18 +61,19 @@ const login = (req, res, next) => {
             token: jwt.generateAccessToken(usr.username),
           });
         } else {
-          res.status(422);
+          res.status(401);
           const error = new Error('Please check your username or password');
           next(error);
         }
       });
     })
-    .catch((e) => {
-      res.status(400);
-      next(e);
+    .catch(() => {
+      res.status(401);
+      const error = new Error('Please check your username or password');
+      next(error);
     });
   }else{
-    res.status(422);
+    res.status(401);
     const error = new Error('Please check your username or password');
     next(error);
   }  
